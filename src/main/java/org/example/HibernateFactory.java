@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.model.Author;
+import org.example.model.Movie;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -16,6 +18,8 @@ public class HibernateFactory {
 		configuration.setProperty("hibernate.hbm2ddl.auto", "update");
 //		configuration.setProperty("hibernate.show_sql", "true");
 
+		configuration.addAnnotatedClass(Movie.class);
+		configuration.addAnnotatedClass(Author.class);
 		return configuration;
 	}
 
